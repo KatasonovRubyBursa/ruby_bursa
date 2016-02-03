@@ -10,4 +10,3 @@ case
 	else
 		puts "Близко, но нет"
 end 
-sdasdsda
