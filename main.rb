@@ -3,7 +3,7 @@ require_relative	"customer"
 require_relative	"programmer"
 require_relative	"manager"
 
-class	ItCOmpanySimulator
+class	ItCompanySimulator
 
 	def self.start
 			order 			= Order.new(complexity: 100, clear: 100, deadline: "19.10.2019")
@@ -14,5 +14,3 @@ class	ItCOmpanySimulator
 	end
 
 end
-
-i = ItCOmpanySimulator.start
