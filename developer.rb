@@ -30,9 +30,6 @@ class Developer
 end
 
 i = Developer.new("Ларри")
-# i.add_task("соснуть хуйца")
-# i.add_task("поесть говнеца")
-# i.add_task("пернуть в автобусе")
 puts i.tasks
 i.work!
 
