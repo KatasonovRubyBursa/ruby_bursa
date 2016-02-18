@@ -52,16 +52,3 @@ class Developer
 		@tasks.any?
 	end
 end
-
-d = Developer.new('Ларри')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-d.add_task('yo')
-puts d.status
