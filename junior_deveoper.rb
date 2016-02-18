@@ -19,19 +19,5 @@ class JuniorDeveloper < Developer
 			super
 		end
 	end
-
 end
 
-o = JuniorDeveloper.new('Kostya')
-
-o.add_task('das')
-o.add_task('das')
-o.add_task('das')
-o.add_task('das')
-o.add_task('das')
-
-puts o.can_add_task?
-puts o.can_work?
-puts o.tasks
-puts o.status
-puts o.work!

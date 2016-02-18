@@ -15,8 +15,8 @@ class Developer
 
 	def add_task(task)
 		if @tasks.count < max_tasks
-				@tasks.push(task)
-				puts "#{@name}: добавлена задача \"#{@tasks.last}\". Всего в списке задач: #{@tasks.count}"	
+			@tasks.push(task)
+			puts "#{@name}: добавлена задача \"#{@tasks.last}\". Всего в списке задач: #{@tasks.count}"	
 		else
 			raise 'Слишком много работы!'
 		end
@@ -51,5 +51,4 @@ class Developer
 	def can_work?
 		@tasks.any?
 	end
-
 end
