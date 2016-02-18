@@ -9,8 +9,12 @@ class Developer
 		@tasks 	= []
 	end
 
+	def max_tasks
+		self.class::MAX_TASKS
+	end
+
 	def add_task(task)
-		if @tasks.count < MAX_TASKS
+		if @tasks.count < max_tasks
 				@tasks.push(task)
 				puts "#{@name}: добавлена задача \"#{@tasks.last}\". Всего в списке задач: #{@tasks.count}"	
 		else
@@ -19,10 +23,7 @@ class Developer
 	end
 
 	def tasks
-		@tasks.map.with_index do |task, index|
-			arr = []
-			arr.push "#{index + 1}. #{task}"
-		end
+		@tasks.map.with_index {|task, index| "#{index + 1}. #{task}"}
 	end
 
 	def work!
@@ -34,7 +35,7 @@ class Developer
 	end
 
 	def status
-		if @tasks.count > MAX_TASKS
+		if @tasks.count == max_tasks
 			'занят'
 		elsif @tasks.count == 0
 			'свободен'
@@ -44,19 +45,11 @@ class Developer
 	end
 
 	def can_add_task?
-		if @tasks.count < MAX_TASKS
-			true
-		else
-			false
-		end
+		@tasks.count < max_tasks
 	end
 
 	def can_work?
-		if @tasks.any?
-			true
-		else
-			false
-		end
+		@tasks.any?
 	end
 
 end
