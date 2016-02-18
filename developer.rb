@@ -35,9 +35,9 @@ class Developer
 	end
 
 	def status
-		if @tasks.count == max_tasks
+		if can_add_task? 	== false
 			'занят'
-		elsif @tasks.count == 0
+		elsif can_work? 	== false
 			'свободен'
 		else
 			'работаю'
@@ -52,3 +52,16 @@ class Developer
 		@tasks.any?
 	end
 end
+
+d = Developer.new('Ларри')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+d.add_task('yo')
+puts d.status
