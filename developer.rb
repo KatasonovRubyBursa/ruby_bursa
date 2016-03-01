@@ -2,9 +2,10 @@ class Developer
 
 	MAX_TASKS = 10
 
-	attr_accessor :tasks
+	attr_accessor :tasks, :name
 
-	def initialize(name)
+	def initialize(name, type = {})
+		@type   = type
 		@name 	= name
 		@tasks 	= []
 	end
