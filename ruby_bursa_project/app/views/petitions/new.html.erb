@@ -1,0 +1,9 @@
+<h1>Новая петиция</h1>
+
+<%= form_for @petition do |petition| %>
+	Название</br>
+	<%= petition.text_field :title %></br>
+	Описание</br>
+	<%= petition.text_area :body %></br>
+	<%= petition.submit 'Создать' %>
+<%end%>

@@ -1,0 +1,14 @@
+<h1>Все петиции</h1>
+
+<table width="100%">
+	<tr>
+		<th align="left">Петиция</th>
+		<th align="left">Автор</th>
+	</tr>
+	<% @petitions.each do |p| %>
+	 	<tr>
+			<td><%= link_to p.title, petition_path(p) %></td>			
+			<td><%= User.find(p.user_id).first_name %></td>
+		</tr>
+	<% end %>
+</table>
