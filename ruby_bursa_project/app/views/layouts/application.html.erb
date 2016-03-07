@@ -10,9 +10,9 @@
 <div class="header">
 	<%if current_user %>
 		<%= current_user.email %>
-		<%= link_to 'Выйти', session_path(:current), method: :delete %>
+		<%= link_to 'Выйти', session_path(:current), method: :delete, data: {confirm: "Вы уверены?"} %>
 	<% else %> 
- 		<%= link_to 'Зарегестрироваться', new_user_path %> или
+ 		<%= link_to 'Зарегестрироваться', new_user_path %> | 
 		<%= link_to 'Войти', new_session_path %>
 	<% end %>
 </div>
@@ -23,7 +23,7 @@
 	<li>
 		<ul><%= link_to 'Все петиции', petitions_path %></ul>
 		<ul><%= link_to 'Создать петицию', new_petition_path %></ul>
-		<ul><%= link_to 'Мои петиции', petitions_path %></ul>
+		<ul><%= link_to 'Мои петиции', my_petitions_petitions_path %></ul>
 	<%else%>
 		<ul><%= link_to 'Все петиции', petitions_path %></ul>
 		<ul><%= link_to 'Создать петицию', new_petition_path %></ul>

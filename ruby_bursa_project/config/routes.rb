@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :users
-  resources :petitions
+  resources :petitions do
+    collection do
+      get 'my_petitions'
+    end
+  end
   resources :sessions
   root to: 'petitions#index'
   # The priority is based upon order of creation: first created -> highest priority.

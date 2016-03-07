@@ -1,14 +1,14 @@
-<h1>Все петиции</h1>
+<h1>Мои петиции</h1>
 
-<table width="100%">
+	<table width="100%">
 	<tr>
 		<th align="left">Петиция</th>
 		<th align="left">Автор</th>
 	</tr>
-	<% @petitions.each do |p| %>
+	<% @my_petitions.each do |p| %>
 	 	<tr>
 			<td><%= link_to p.title, petition_path(p) %></td>			
-			<td><%= "#{User.find(p.user_id).first_name} #{User.find(p.user_id).last_name}" %></td>
+			<td><%= "#{current_user.first_name} #{current_user.last_name}" %></td>
 		</tr>
 	<% end %>
 </table>

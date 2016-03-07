@@ -4,11 +4,7 @@ class PetitionsController < ApplicationController
 	# before_action :find_user_by_user_id, only: [:index]
 
 	def index
-		# if current_user
-			# @petitions = Petition.where(user_id: current_user.id)
-		# else
-			@petitions = Petition.all
-		# end
+			@petitions = Petition.all.order('created_at DESC').limit(10)			
 	end
 
 	def new
@@ -30,7 +26,10 @@ class PetitionsController < ApplicationController
 
 	def show
 		@petition = Petition.find(params[:id])
-		render text: "#{@petition.id}"
+	end
+
+	def my_petitions
+		@my_petitions = current_user.petitions.order('created_at DESC').limit(10)	
 	end
 
 	private
