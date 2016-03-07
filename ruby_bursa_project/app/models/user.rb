@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
 	has_many :petitions
 
 	validates_uniqueness_of :email
-	validates 							:first_name, :last_name, presence: true
+	validates 							:first_name, :last_name, :email, presence: true
 end

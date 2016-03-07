@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to root_url, notice: "Добро пожаловать, #{user.email}!"
 		else
-			flash[:invalid_data] = "Не правильный Email или пароль"
+			flash[:error] = "Не правильный Email или пароль"
 			render 'new'
 		end
 	end
