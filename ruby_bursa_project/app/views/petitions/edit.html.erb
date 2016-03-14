@@ -1,0 +1,11 @@
+<h1>Изменение петиции</h1>
+
+<div class="input-group">
+	<%= form_for @petition do |petition| %>
+		Название</br>
+		<%= petition.text_field :title, class: "form-control" %></br>
+		Описание</br>
+		<%= petition.text_area :body, class: "form-control" %></br>
+		<p><%= petition.submit 'Сохранить', class: "btn btn-success" %></p>
+	<%end%>
+</div>
