@@ -7,34 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="header">
-	<%if current_user %>
-		<%= current_user.email %>
-		<%= link_to 'Выйти', session_path(:current), method: :delete, data: {confirm: "Вы уверены?"} %>
-	<% else %> 
- 		<%= link_to 'Зарегестрироваться', new_user_path %> | 
-		<%= link_to 'Войти', new_session_path %>
-	<% end %>
-</div>
 
-<div class="right-side-menu">
+	<div class="navbar navbar-default">
+		<div class="container">
+			<p class="navbar-text">Онлайн петиции нашего района</p>
+			<div class="pull-right" style="margin: 15px">
+				<%if current_user %>
+					<%= current_user.email %>
+					<%= link_to 'Выйти', session_path(:current), method: :delete, data: {confirm: "Вы уверены?"} %>
+				<% else %> 
+			 		<%= link_to 'Зарегестрироваться', new_user_path %> | 
+					<%= link_to 'Войти', new_session_path %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 
-<% if current_user %>
-	<li>
-		<ul><%= link_to 'Все петиции', petitions_path %></ul>
-		<ul><%= link_to 'Создать петицию', new_petition_path %></ul>
-		<ul><%= link_to 'Мои петиции', my_petitions_petitions_path %></ul>
-	<%else%>
-		<ul><%= link_to 'Все петиции', petitions_path %></ul>
-		<ul><%= link_to 'Создать петицию', new_petition_path %></ul>
-	</li>
-<% end %>
-
-</div>
-
-<div class="content">
-<%= yield %>
-</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9">
+				<%= bootstrap_flash %>
+				<%= yield %>
+			</div>
+			<div class="col-lg-3">
+				<div class="well sidebar-nav">
+				<% if current_user %>
+					<ul>
+						<li><%= link_to 'Все петиции', petitions_path %></li>
+						<li><%= link_to 'Создать петицию', new_petition_path %></li>
+						<li><%= link_to 'Мои петиции', my_petitions_petitions_path %></li>
+				<%else%>
+						<li><%= link_to 'Все петиции', petitions_path %></li>
+						<li><%= link_to 'Создать петицию', new_petition_path %></li>
+					</ul>
+				<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

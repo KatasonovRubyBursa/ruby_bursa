@@ -1,4 +1,16 @@
 <h1>Петиция</h1>
-
 <h2><%= @petition.title %></h2>
-<p><%= @petition.body %></p>
+<p><%= @petition.created_at.strftime('%d/%m/%Y %H:%M')%></p>
+<p><h5><%= @petition.body %></h5></p>
+<p><b>Голосов:</b>
+  <%= @petition.votes.count %>
+</p>
+<p>
+  <% if current_user %>
+	  <% if @petition.already_voted?(current_user)  %>
+      <h6>Вы уже поддержали данную петицию</h6>
+    <% else %>
+      <%= button_to('Поддержать', votes_path({ petition_id: @petition.id }), class: 'button' )  %>
+    <% end %>
+  <% end %>  
+</p>
